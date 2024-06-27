@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const session = require('express-session'); // Adicione esta linha
 const flash = require('connect-flash');
 const exceptionHandler = require('express-exception-handler');
@@ -14,14 +13,13 @@ const app = express();
 
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser(process.env.COOKIE_SECRET));
 
 // Configuração do middleware de sessão
 app.use(session({
   secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: process.env.NODE_ENV === 'production' }
+//  cookie: { secure: process.env.NODE_ENV === 'production' }
 }));
 
 app.use(flash());
