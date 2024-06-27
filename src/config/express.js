@@ -16,7 +16,6 @@ app.use(express.urlencoded({ extended: true }));
 
 // Configuração do middleware de sessão
 app.use(session({
-  secret: 'TOKEN',
   resave: false,
   saveUninitialized: true,
 //  cookie: { secure: process.env.NODE_ENV === 'production' }
